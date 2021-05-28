@@ -45,7 +45,27 @@ JOIN track_info AS ti ON ta.id_track = ti.id_track
 WHERE track_length = (SELECT MIN(FROM track_info)
 ;
 
-SELECT album_name FROM album_info AS ai
-JOIN track_album AS ta ON ai.id_album = ta.id_album
-WHERE (SELECT MIN(COUNT(id_track)))
-;
+SELECT * FROM album_info AS ai
+JOIN track_album AS ta ON ai.id_album = ta.id_album                  
+
+SELECT id_album, COUNT(id_track) FROM track_album
+GROUP BY id_album;
+                      
+                      WHERE ta.id_album = (
+ SELECT id_album FROM ta 
+ GROUP BY id_album
+ HAVING (
+  SELECT id_album FROM 
+  
+SELECT album_name FROM album_info AS ai  
+  
+  
+ 
+ 
+ ORDER BY ASC
+ 
+ GROUP BY ta.id_album
+ HAVING (
+  SELECT
+GROUP BY id_album
+HAVING MIN(id_track) = 1;
