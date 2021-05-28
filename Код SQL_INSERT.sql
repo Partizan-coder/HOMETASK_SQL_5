@@ -14,7 +14,7 @@ INSERT INTO Singer_info (Alias, Full_name) VALUES
 ('Alias_5',  'Full_name_5'),
 ('Alias_6',  'Full_name_6'),
 ('Alias_7',  'Full_name_7 7777'),
-('Alias_8',  'Full_name_8 8888')
+('Alias_8',  'Full_name_8 8888'),
 ('Alias_9',  'Full_name_9')
 ;
 
