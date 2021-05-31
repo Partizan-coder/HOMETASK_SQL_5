@@ -7,8 +7,7 @@ WHERE EXTRACT (YEAR from a.Issue_date)) BETWEEN 2019 AND 2020
 GROUP BY t.id_album;
 
 SELECT AVG(ti.track_length), ta.id_album FROM Track_album AS ta 
-JOIN Track_info AS ti ON ta.id_track = ti.id_track 
-GROUP BY ta.id_album 
+JOIN Track_info AS ti ON ta.id_track = ti.id_track
 ORDER BY AVG(ti.track_length) ASC;
 
 SELECT full_name FROM singer_info AS si
@@ -45,27 +44,14 @@ JOIN track_info AS ti ON ta.id_track = ti.id_track
 WHERE track_length = (SELECT MIN(FROM track_info)
 ;
 
-SELECT * FROM album_info AS ai
-JOIN track_album AS ta ON ai.id_album = ta.id_album                  
-
-SELECT id_album, COUNT(id_track) FROM track_album
-GROUP BY id_album;
-                      
-                      WHERE ta.id_album = (
- SELECT id_album FROM ta 
- GROUP BY id_album
- HAVING (
-  SELECT id_album FROM 
-  
-SELECT album_name FROM album_info AS ai  
-  
-  
- 
- 
- ORDER BY ASC
- 
- GROUP BY ta.id_album
- HAVING (
-  SELECT
-GROUP BY id_album
-HAVING MIN(id_track) = 1;
+SELECT ai.album_name, COUNT(ta.id_track) FROM track_album AS ta
+JOIN album_info AS ai ON ta.id_album = ai.id_album
+GROUP BY ai.album_name
+HAVING (
+COUNT(ta.id_track) = (
+SELECT COUNT(id_track) FROM track_album AS ta_2
+GROUP BY ta_2.id_album
+ORDER BY COUNT(id_track) ASC
+LIMIT 1))                   
+ORDER BY ai.album_name ASC
+;
